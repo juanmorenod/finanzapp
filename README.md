@@ -23,13 +23,35 @@ Aplicación web moderna para el **control y análisis de gastos personales**. Co
 ```
 finanzapp/
 ├── app/
-│   ├── index.html      # Estructura principal de la SPA
-│   ├── app.js          # Lógica de la app (Firebase, Firestore, UI)
-│   └── styles.css      # Estilos (diseño oscuro, componentes)
-├── firebase.json       # Configuración de Firebase Hosting
-├── deploy.bat          # Script de despliegue para Windows
+│   ├── index.html                  # Estructura principal de la SPA
+│   ├── app.js                      # Lógica de la app (Firebase, Firestore, UI)
+│   ├── styles.css                  # Estilos (diseño oscuro, componentes)
+│   ├── firebase-config.js          # ⚠️ Config local (NO incluida en Git)
+│   └── firebase-config.example.js # Plantilla de configuración
+├── firebase.json                   # Configuración de Firebase Hosting
+├── deploy.bat                      # Script de despliegue para Windows
 └── README.md
 ```
+
+## 🔧 Configuración Inicial (Requerida)
+
+> **⚠️ La clave de API de Firebase no está incluida en el repositorio por seguridad.**
+> Debes configurarla localmente antes de ejecutar o desplegar la app.
+
+### Pasos
+
+1. Copia el archivo de ejemplo:
+   ```bash
+   cp app/firebase-config.example.js app/firebase-config.js
+   ```
+   *(En Windows: copia y renombra el archivo manualmente)*
+
+2. Abre `app/firebase-config.js` y reemplaza los valores con los de tu proyecto:
+   - Ve a [Firebase Console](https://console.firebase.google.com)
+   - Selecciona tu proyecto → ⚙️ Configuración → Tus apps → SDK de Firebase
+   - Copia los valores del objeto `firebaseConfig`
+
+3. El archivo `firebase-config.js` está en `.gitignore` y **nunca se subirá al repositorio**.
 
 ## 🛠️ Stack Tecnológico
 
@@ -56,6 +78,7 @@ finanzapp/
 ### Requisitos
 - Node.js instalado
 - Cuenta de Google con proyecto Firebase configurado
+- Archivo `app/firebase-config.js` configurado (ver sección anterior)
 
 ### Pasos
 ```bash
