@@ -2,6 +2,9 @@
 .firebase/
 .firebaserc
 
+# Configuración local con claves privadas (NO subir al repositorio)
+app/firebase-config.js
+
 # Logs
 *.log
 npm-debug.log*
