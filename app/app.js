@@ -18,15 +18,10 @@ import {
 
 // ==========================================
 // FIREBASE CONFIG
+// Importada desde firebase-config.js (excluido de Git).
+// Ver firebase-config.example.js para instrucciones de setup.
 // ==========================================
-const firebaseConfig = {
-  apiKey: "AIzaSyCBIIo65uxEmYPuW0Zv3TX5LGaQQEjv2Fk",
-  authDomain: "presupuesto-2bcd5.firebaseapp.com",
-  projectId: "presupuesto-2bcd5",
-  storageBucket: "presupuesto-2bcd5.firebasestorage.app",
-  messagingSenderId: "458194075608",
-  appId: "1:458194075608:web:d7ca5ea38f220e12c77cad",
-};
+import { firebaseConfig } from './firebase-config.js';
 
 const app      = initializeApp(firebaseConfig);
 const auth     = getAuth(app);
@@ -241,6 +236,7 @@ window.handleFormSubmit = async function (e) {
   const valor     = parseFloat(document.getElementById('input-valor').value);
   clearFormErrors();
   let valid = true;
+
   if (!nombre)     { showFieldError('nombre',    'El nombre es obligatorio');       valid = false; }
   if (!categoria)  { showFieldError('categoria', 'Selecciona una categoría');       valid = false; }
   if (!fecha)      { showFieldError('fecha',     'La fecha es obligatoria');        valid = false; }
